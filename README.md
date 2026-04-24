@@ -2,7 +2,7 @@
 license: mit
 library_name: transformers
 ---
-# DeepSeek-V4: Towards Highly Efficient Million-Token Context Intelligence
+# DeepSeek-V4 : vers une intelligence à contexte d’un million de tokens, hautement efficace
 
 <!-- markdownlint-disable first-line-h1 -->
 <!-- markdownlint-disable html -->
@@ -35,32 +35,32 @@ library_name: transformers
 </div>
 
 <p align="center">
-  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf"><b>Technical Report</b>👁️</a>
+  <a href="https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/DeepSeek_V4.pdf"><b>Rapport technique</b>👁️</a>
 </p>
 
 ## Introduction
 
-We present a preview version of **DeepSeek-V4** series, including two strong Mixture-of-Experts (MoE) language models — **DeepSeek-V4-Pro** with 1.6T parameters (49B activated) and **DeepSeek-V4-Flash** with 284B parameters (13B activated) — both supporting a context length of **one million tokens**.
+Nous présentons une version d’aperçu de la série **DeepSeek-V4**, comprenant deux puissants modèles de langage Mixture-of-Experts (MoE) — **DeepSeek-V4-Pro** avec 1,6T de paramètres (49B activés) et **DeepSeek-V4-Flash** avec 284B de paramètres (13B activés) — tous deux prenant en charge une longueur de contexte d’**un million de tokens**.
 
-DeepSeek-V4 series incorporate several key upgrades in architecture and optimization:
+La série DeepSeek-V4 intègre plusieurs améliorations clés en matière d’architecture et d’optimisation :
 
-1. **Hybrid Attention Architecture:** We design a hybrid attention mechanism combining Compressed Sparse Attention (CSA) and Heavily Compressed Attention (HCA) to dramatically improve long-context efficiency. In the 1M-token context setting, DeepSeek-V4-Pro requires only **27% of single-token inference FLOPs** and **10% of KV cache** compared with DeepSeek-V3.2.
-2. **Manifold-Constrained Hyper-Connections (mHC):** We incorporate mHC to strengthen conventional residual connections, enhancing stability of signal propagation across layers while preserving model expressivity.
-3. **Muon Optimizer:** We employ the Muon optimizer for faster convergence and greater training stability.
+1. **Architecture d’attention hybride :** nous concevons un mécanisme d’attention hybride combinant la Compressed Sparse Attention (CSA) et la Heavily Compressed Attention (HCA) afin d’améliorer drastiquement l’efficacité sur les longs contextes. Dans le réglage de contexte à 1M de tokens, DeepSeek-V4-Pro ne nécessite que **27 % des FLOPs d’inférence d’un seul token** et **10 % du cache KV** par rapport à DeepSeek-V3.2.
+2. **Hyperconnexions à contrainte de variété (Manifold-Constrained Hyper-Connections, mHC) :** nous intégrons les mHC pour renforcer les connexions résiduelles classiques, améliorant la stabilité de la propagation du signal à travers les couches tout en préservant l’expressivité du modèle.
+3. **Optimiseur Muon :** nous utilisons l’optimiseur Muon pour une convergence plus rapide et une meilleure stabilité d’entraînement.
 
-We pre-train both models on more than **32T** diverse and high-quality tokens, followed by a comprehensive post-training pipeline. The post-training features a two-stage paradigm: independent cultivation of domain-specific experts (through SFT and RL with GRPO), followed by unified model consolidation via on-policy distillation, integrating distinct proficiencies across diverse domains into a single model.
+Nous pré-entraînons les deux modèles sur plus de **32T** de tokens diversifiés et de haute qualité, suivis d’un pipeline complet de post-entraînement. Le post-entraînement suit un paradigme en deux étapes : culture indépendante d’experts spécialisés par domaine (via SFT et RL avec GRPO), puis consolidation unifiée du modèle par distillation on-policy, intégrant des compétences distinctes issues de domaines variés dans un seul modèle.
 
-**DeepSeek-V4-Pro-Max**, the maximum reasoning effort mode of DeepSeek-V4-Pro, significantly advances the knowledge capabilities of open-source models, firmly establishing itself as the best open-source model available today. It achieves top-tier performance in coding benchmarks and significantly bridges the gap with leading closed-source models on reasoning and agentic tasks. Meanwhile, **DeepSeek-V4-Flash-Max** achieves comparable reasoning performance to the Pro version when given a larger thinking budget, though its smaller parameter scale naturally places it slightly behind on pure knowledge tasks and the most complex agentic workflows.
+**DeepSeek-V4-Pro-Max**, le mode de raisonnement à effort maximal de DeepSeek-V4-Pro, fait progresser de manière significative les capacités de connaissance des modèles open source, s’imposant fermement comme le meilleur modèle open source disponible aujourd’hui. Il atteint des performances de tout premier plan sur les benchmarks de code et réduit considérablement l’écart avec les meilleurs modèles fermés sur les tâches de raisonnement et les tâches agentiques. Par ailleurs, **DeepSeek-V4-Flash-Max** obtient des performances de raisonnement comparables à la version Pro lorsqu’on lui accorde un budget de réflexion plus important, bien que sa plus petite échelle de paramètres le place naturellement un peu en retrait sur les tâches de connaissance pures et les workflows agentiques les plus complexes.
 
 <div align="center">
  <img src="assets/dsv4_performance.png" >
 </div>
 
-## Model Downloads
+## Téléchargements du modèle
 
 <div align="center">
 
-| **Model** | **#Total Params** | **#Activated Params** | **Context Length** | **Precision** | **Download** |
+| **Modèle** | **# Paramètres totaux** | **# Paramètres activés** | **Longueur de contexte** | **Précision** | **Téléchargement** |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | DeepSeek-V4-Flash-Base | 284B | 13B | 1M | FP8 Mixed | [HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-Base) \| [ModelScope](https://modelscope.cn/models/deepseek-ai/DeepSeek-V4-Flash-Base) |
 | DeepSeek-V4-Flash | 284B | 13B | 1M | FP4 + FP8 Mixed* | [HuggingFace](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash) \| [ModelScope](https://modelscope.cn/models/deepseek-ai/DeepSeek-V4-Flash) |
@@ -69,20 +69,20 @@ We pre-train both models on more than **32T** diverse and high-quality tokens, f
 
 </div>
 
-*\*FP4 + FP8 Mixed: MoE expert parameters use FP4 precision; most other parameters use FP8.*
+*\*FP4 + FP8 Mixed : les paramètres des experts MoE utilisent la précision FP4 ; la plupart des autres paramètres utilisent FP8.*
 
-## Evaluation Results
+## Résultats d’évaluation
 
-### Base Model
+### Modèle de base
 
 <div align="center">
 
-| Benchmark (Metric) | # Shots | DeepSeek-V3.2-Base | DeepSeek-V4-Flash-Base | DeepSeek-V4-Pro-Base |
+| Benchmark (métrique) | # Shots | DeepSeek-V3.2-Base | DeepSeek-V4-Flash-Base | DeepSeek-V4-Pro-Base |
 | :--- | :---: | :---: | :---: | :---: |
 | Architecture | - | MoE | MoE | MoE |
-| # Activated Params | - | 37B | 13B | 49B |
-| # Total Params | - | 671B | 284B | 1.6T |
-| **World Knowledge** | | | | |
+| # Paramètres activés | - | 37B | 13B | 49B |
+| # Paramètres totaux | - | 671B | 284B | 1.6T |
+| **Connaissances du monde** | | | | |
 | AGIEval (EM) | 0-shot | 80.1 | 82.6 | **83.1** |
 | MMLU (EM) | 5-shot | 87.8 | 88.7 | **90.1** |
 | MMLU-Redux (EM) | 5-shot | 87.5 | 89.4 | **90.8** |
@@ -91,45 +91,45 @@ We pre-train both models on more than **32T** diverse and high-quality tokens, f
 | C-Eval (EM) | 5-shot | 90.4 | 92.1 | **93.1** |
 | CMMLU (EM) | 5-shot | 88.9 | 90.4 | **90.8** |
 | MultiLoKo (EM) | 5-shot | 38.7 | 42.2 | **51.1** |
-| Simple-QA verified (EM) | 25-shot | 28.3 | 30.1 | **55.2** |
+| Simple-QA vérifié (EM) | 25-shot | 28.3 | 30.1 | **55.2** |
 | SuperGPQA (EM) | 5-shot | 45.0 | 46.5 | **53.9** |
 | FACTS Parametric (EM) | 25-shot | 27.1 | 33.9 | **62.6** |
 | TriviaQA (EM) | 5-shot | 83.3 | 82.8 | **85.6** |
-| **Language & Reasoning** | | | | |
+| **Langage et raisonnement** | | | | |
 | BBH (EM) | 3-shot | **87.6** | 86.9 | 87.5 |
 | DROP (F1) | 1-shot | 88.2 | 88.6 | **88.7** |
 | HellaSwag (EM) | 0-shot | 86.4 | 85.7 | **88.0** |
 | WinoGrande (EM) | 0-shot | 78.9 | 79.5 | **81.5** |
 | CLUEWSC (EM) | 5-shot | 83.5 | 82.2 | **85.2** |
-| **Code & Math** | | | | |
+| **Code et mathématiques** | | | | |
 | BigCodeBench (Pass@1) | 3-shot | **63.9** | 56.8 | 59.2 |
 | HumanEval (Pass@1) | 0-shot | 62.8 | 69.5 | **76.8** |
 | GSM8K (EM) | 8-shot | 91.1 | 90.8 | **92.6** |
 | MATH (EM) | 4-shot | 60.5 | 57.4 | **64.5** |
 | MGSM (EM) | 8-shot | 81.3 | **85.7** | 84.4 |
 | CMath (EM) | 3-shot | 92.6 | **93.6** | 90.9 |
-| **Long Context** | | | | |
+| **Long contexte** | | | | |
 | LongBench-V2 (EM) | 1-shot | 40.2 | 44.7 | **51.5** |
 
 </div>
 
-### Instruct Model
+### Modèle Instruct
 
-DeepSeek-V4-Pro and DeepSeek-V4-Flash both support three reasoning effort modes:
+DeepSeek-V4-Pro et DeepSeek-V4-Flash prennent tous deux en charge trois modes d’effort de raisonnement :
 
-| Reasoning Mode | Characteristics | Typical Use Cases | Response Format |
+| Mode de raisonnement | Caractéristiques | Cas d’usage typiques | Format de réponse |
 | :--- | :--- | :--- | :--- |
-| Non-think | Fast, intuitive responses | Routine daily tasks, low-risk decisions | `</think>` summary |
-| Think High | Conscious logical analysis, slower but more accurate | Complex problem-solving, planning | `<think>` thinking `</think>` summary |
-| Think Max | Push reasoning to its fullest extent | Exploring the boundary of model reasoning capability | Special system prompt + `<think>` thinking `</think>` summary |
+| Non-think | Réponses rapides et intuitives | Tâches quotidiennes courantes, décisions à faible risque | Résumé `</think>` |
+| Think High | Analyse logique consciente, plus lente mais plus précise | Résolution de problèmes complexes, planification | Pensée `<think>` `</think>` résumé |
+| Think Max | Pousser le raisonnement à son maximum | Explorer les limites des capacités de raisonnement du modèle | Prompt système spécial + pensée `<think>` `</think>` résumé |
 
-#### DeepSeek-V4-Pro-Max vs Frontier Models
+#### DeepSeek-V4-Pro-Max vs modèles frontier
 
 <div align="center">
 
-| Benchmark (Metric) | Opus-4.6 Max | GPT-5.4 xHigh | Gemini-3.1-Pro High | K2.6 Thinking | GLM-5.1 Thinking | DS-V4-Pro Max |
+| Benchmark (métrique) | Opus-4.6 Max | GPT-5.4 xHigh | Gemini-3.1-Pro High | K2.6 Thinking | GLM-5.1 Thinking | DS-V4-Pro Max |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Knowledge & Reasoning** | | | | | | |
+| **Connaissance et raisonnement** | | | | | | |
 | MMLU-Pro (EM) | 89.1 | 87.5 | **91.0** | 87.1 | 86.0 | 87.5 |
 | SimpleQA-Verified (Pass@1) | 46.2 | 45.3 | **75.6** | 36.9 | 38.1 | 57.9 |
 | Chinese-SimpleQA (Pass@1) | 76.4 | 76.8 | **85.9** | 75.9 | 75.0 | 84.4 |
@@ -141,29 +141,29 @@ DeepSeek-V4-Pro and DeepSeek-V4-Flash both support three reasoning effort modes:
 | IMOAnswerBench (Pass@1) | 75.3 | **91.4** | 81.0 | 86.0 | 83.8 | 89.8 |
 | Apex (Pass@1) | 34.5 | 54.1 | **60.9** | 24.0 | 11.5 | 38.3 |
 | Apex Shortlist (Pass@1) | 85.9 | 78.1 | 89.1 | 75.5 | 72.4 | **90.2** |
-| **Long Context** | | | | | | |
+| **Long contexte** | | | | | | |
 | MRCR 1M (MMR) | **92.9** | - | 76.3 | - | - | 83.5 |
 | CorpusQA 1M (ACC) | **71.7** | - | 53.8 | - | - | 62.0 |
-| **Agentic** | | | | | | |
+| **Agentique** | | | | | | |
 | Terminal Bench 2.0 (Acc) | 65.4 | **75.1** | 68.5 | 66.7 | 63.5 | 67.9 |
 | SWE Verified (Resolved) | **80.8** | - | 80.6 | 80.2 | - | 80.6 |
 | SWE Pro (Resolved) | 57.3 | 57.7 | 54.2 | **58.6** | 58.4 | 55.4 |
 | SWE Multilingual (Resolved) | **77.5** | - | - | 76.7 | 73.3 | 76.2 |
 | BrowseComp (Pass@1) | 83.7 | 82.7 | **85.9** | 83.2 | 79.3 | 83.4 |
-| HLE w/ tools (Pass@1) | 53.1 | 52.0 | 51.6 | **54.0** | 50.4 | 48.2 |
+| HLE avec outils (Pass@1) | 53.1 | 52.0 | 51.6 | **54.0** | 50.4 | 48.2 |
 | GDPval-AA (Elo) | 1619 | **1674** | 1314 | 1482 | 1535 | 1554 |
 | MCPAtlas Public (Pass@1) | **73.8** | 67.2 | 69.2 | 66.6 | 71.8 | 73.6 |
 | Toolathlon (Pass@1) | 47.2 | **54.6** | 48.8 | 50.0 | 40.7 | 51.8 |
 
 </div>
 
-#### Comparison across Modes
+#### Comparaison entre modes
 
 <div align="center">
 
-| Benchmark (Metric) | V4-Flash Non-Think | V4-Flash High | V4-Flash Max | V4-Pro Non-Think | V4-Pro High | V4-Pro Max |
+| Benchmark (métrique) | V4-Flash Non-Think | V4-Flash High | V4-Flash Max | V4-Pro Non-Think | V4-Pro High | V4-Pro Max |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Knowledge & Reasoning** | | | | | | |
+| **Connaissance et raisonnement** | | | | | | |
 | MMLU-Pro (EM) | 83.0 | 86.4 | 86.2 | 82.9 | 87.1 | **87.5** |
 | SimpleQA-Verified (Pass@1) | 23.1 | 28.9 | 34.1 | 45.0 | 46.2 | **57.9** |
 | Chinese-SimpleQA (Pass@1) | 71.5 | 73.2 | 78.9 | 75.8 | 77.7 | **84.4** |
@@ -175,27 +175,27 @@ DeepSeek-V4-Pro and DeepSeek-V4-Flash both support three reasoning effort modes:
 | IMOAnswerBench (Pass@1) | 41.9 | 85.1 | 88.4 | 35.3 | 88.0 | **89.8** |
 | Apex (Pass@1) | 1.0 | 19.1 | 33.0 | 0.4 | 27.4 | **38.3** |
 | Apex Shortlist (Pass@1) | 9.3 | 72.1 | 85.7 | 9.2 | 85.5 | **90.2** |
-| **Long Context** | | | | | | |
+| **Long contexte** | | | | | | |
 | MRCR 1M (MMR) | 37.5 | 76.9 | 78.7 | 44.7 | 83.3 | **83.5** |
 | CorpusQA 1M (ACC) | 15.5 | 59.3 | 60.5 | 35.6 | 56.5 | **62.0** |
-| **Agentic** | | | | | | |
+| **Agentique** | | | | | | |
 | Terminal Bench 2.0 (Acc) | 49.1 | 56.6 | 56.9 | 59.1 | 63.3 | **67.9** |
 | SWE Verified (Resolved) | 73.7 | 78.6 | 79.0 | 73.6 | 79.4 | **80.6** |
 | SWE Pro (Resolved) | 49.1 | 52.3 | 52.6 | 52.1 | 54.4 | **55.4** |
 | SWE Multilingual (Resolved) | 69.7 | 70.2 | 73.3 | 69.8 | 74.1 | **76.2** |
 | BrowseComp (Pass@1) | - | 53.5 | 73.2 | - | 80.4 | **83.4** |
-| HLE w/ tools (Pass@1) | - | 40.3 | 45.1 | - | 44.7 | **48.2** |
+| HLE avec outils (Pass@1) | - | 40.3 | 45.1 | - | 44.7 | **48.2** |
 | MCPAtlas (Pass@1) | 64.0 | 67.4 | 69.0 | 69.4 | **74.2** | 73.6 |
 | GDPval-AA (Elo) | - | - | 1395 | - | - | **1554** |
 | Toolathlon (Pass@1) | 40.7 | 43.5 | 47.8 | 46.3 | 49.0 | **51.8** |
 
 </div>
 
-## Chat Template
+## Modèle de chat
 
-This release does not include a Jinja-format chat template. Instead, we provide a dedicated `encoding` folder with Python scripts and test cases demonstrating how to encode messages in OpenAI-compatible format into input strings for the model, and how to parse the model's text output. Please refer to the [`encoding`](encoding/README.md) folder for full documentation.
+Cette version ne comprend pas de modèle de chat au format Jinja. À la place, nous fournissons un dossier dédié `encoding` contenant des scripts Python et des cas de test démontrant comment encoder des messages au format compatible OpenAI en chaînes d’entrée pour le modèle, et comment analyser la sortie texte du modèle. Veuillez vous référer au dossier [`encoding`](encoding/README.md) pour la documentation complète.
 
-A brief example:
+Un exemple rapide :
 
 ```python
 from encoding_dsv4 import encode_messages, parse_message_from_completion_text
@@ -215,15 +215,15 @@ tokenizer = transformers.AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-V4-
 tokens = tokenizer.encode(prompt)
 ```
 
-## How to Run Locally
+## Comment exécuter en local
 
-Please refer to the [inference](inference/README.md) folder for detailed instructions on running DeepSeek-V4 locally, including model weight conversion and interactive chat demos.
+Veuillez consulter le dossier [inference](inference/README.md) pour des instructions détaillées sur l’exécution locale de DeepSeek-V4, y compris la conversion des poids du modèle et les démonstrations de chat interactif.
 
-For local deployment, we recommend setting the sampling parameters to `temperature = 1.0, top_p = 1.0`. For the Think Max reasoning mode, we recommend setting the context window to at least **384K** tokens.
+Pour le déploiement local, nous recommandons de régler les paramètres d’échantillonnage sur `temperature = 1.0, top_p = 1.0`. Pour le mode de raisonnement Think Max, nous recommandons une fenêtre de contexte d’au moins **384K** tokens.
 
-## License
+## Licence
 
-This repository and the model weights are licensed under the [MIT License](LICENSE).
+Ce dépôt et les poids du modèle sont placés sous licence [MIT](LICENSE).
 
 ## Citation
 
@@ -237,4 +237,4 @@ This repository and the model weights are licensed under the [MIT License](LICEN
 
 ## Contact
 
-If you have any questions, please raise an issue or contact us at [service@deepseek.com](service@deepseek.com).
+Si vous avez des questions, veuillez ouvrir une issue ou nous contacter à l’adresse [service@deepseek.com](service@deepseek.com).
